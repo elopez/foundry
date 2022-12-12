@@ -138,6 +138,7 @@ jobs:
               uses: actions-rs/cargo@v1
               env:
                   SVM_TARGET_PLATFORM: ${{ matrix.job.svm_target_platform }}
+                  RUSTFLAGS: '-C target-feature=+crt-static' 
               with:
                   command: build
                   args: --release --bins --target ${{ matrix.job.target }}
